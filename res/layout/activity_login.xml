@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.tencent.mm.basicActivity.login.LoginActivity" >
+
+    <com.tencent.mm.common.view.cycleview
+        android:id="@+id/loginimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/loginimage" />
+    
+    <ImageView 
+        android:id="@+id/usernameicon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/loginimage"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/loginnameicon"/>
+    
+    <EditText 
+        android:id="@+id/usernameinput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/usernameicon"
+        android:layout_below="@id/loginimage"
+        android:hint="请输入用户名"/>
+    
+    <ImageView 
+        android:id="@+id/passwordicon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/usernameicon"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/passwordicon"/>
+    
+    <EditText 
+        android:id="@+id/passwordinput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/passwordicon"
+        android:layout_below="@id/usernameicon"
+        android:hint="支付宝密码"/>
+    
+    <Button 
+        android:id="@+id/loginicon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordicon"
+        android:layout_marginTop="5dp"
+        android:text="登陆"
+        android:background="#C2BDFE"/>
+    
+    <Button 
+        android:id="@+id/forgetpasswordicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/loginicon"
+        android:layout_marginTop="5dp"
+        android:text="忘记密码?"
+        android:background="@drawable/lucencybutton"/>
+    
+    <Button 
+        android:id="@+id/otherloginicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/loginicon"
+        android:layout_marginTop="5dp"
+        android:text="淘宝账户登陆"
+        android:background="@drawable/lucencybutton"/>
+    
+    <Button 
+        android:id="@+id/signupicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="注册"
+        android:textColor="#000000"/>
+
+</RelativeLayout>
