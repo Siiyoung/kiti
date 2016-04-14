@@ -1,15 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.tencent.mm.basicActivity.mainPage.MainTaskActivity" >
     
     <TextView 
+        android:id="@+id/mainpage_usernameicon"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="用户名 ："
+       />
+    
+    <TextView 
+        android:id="@+id/mainpage_username"
+        android:layout_toRightOf="@id/mainpage_usernameicon"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text=":"
+        />
+    
+    <TextView 
+        android:id="@+id/mainpage_notice"
+        android:layout_below="@id/mainpage_username"
         android:layout_width="match_parent"
-        android:layout_height="51px"
-        android:text="Hello World! Main Task Page !"
-        
+        android:layout_height="50dp"
+        android:text="预留用来显示任务状态"
+        />
+    
+    <LinearLayout
+        android:id="@+id/taskbutton_layout"
+        android:layout_below="@id/mainpage_notice"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/taobao"
+            android:background="@drawable/basicbuttonyellow"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:text="@string/taobao"/>
+        <Button
+            android:id="@+id/tianmao"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@drawable/basicbuttonyellow"
+            android:text="@string/tianmao"/>
+        <Button
+            android:id="@+id/jingdong"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@drawable/basicbuttonyellow"
+            android:text="@string/jingdong"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/changeAccount_layout"
+        android:layout_below="@id/taskbutton_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/stopTask"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@drawable/basicbuttonyellow"
+            android:text="@string/stopTask"/>
+        <Button
+            android:id="@+id/changeAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@drawable/basicbuttonyellow"
+            android:text="@string/changeAccount"/>
+    </LinearLayout>
+    
+    <Button 
+        android:id="@+id/quit"
+        android:layout_below="@id/changeAccount_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/basicbuttonyellow"
+        android:text="@string/quit"
         />
     
 
-</LinearLayout>
+</RelativeLayout>

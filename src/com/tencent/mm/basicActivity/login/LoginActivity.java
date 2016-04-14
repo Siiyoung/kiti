@@ -49,6 +49,8 @@ public void getusername(){
 		//校验账号密码匹配则跳转到主任务页面
 		if (PassWordTool.checkPassWord(userNameInput.getText().toString(), passWordInput.getText().toString())){
 			Intent intent = new Intent() ;
+			intent.putExtra("userName", userNameInput.getText().toString());
+			intent.putExtra("passWord", passWordInput.getText().toString());
 			intent.setClass(LoginActivity.this, MainTaskActivity.class);
 			this.startActivity(intent);
 		}
