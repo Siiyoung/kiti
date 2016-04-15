@@ -1,5 +1,9 @@
 package com.tencent.mm.basicActivity.mainPage;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 import com.tencent.mm.R;
 
 import android.app.AlertDialog;
@@ -12,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainTaskActivity extends ActionBarActivity {
 	
@@ -42,7 +47,6 @@ public class MainTaskActivity extends ActionBarActivity {
 		quit= (Button) findViewById(R.id.quit);
 		taobao.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了淘宝按钮").show();
 				
@@ -50,23 +54,36 @@ public class MainTaskActivity extends ActionBarActivity {
 		});
 		tianmao.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
-				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了天猫按钮").show();
+				Toast.makeText(getApplicationContext(), "即将开始做淘宝任务", Toast.LENGTH_SHORT).show();
+//				Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.taobao.taobao");  
+//				startActivity(LaunchIntent); 
+				Process rt;
+				try {
+					rt = Runtime.getRuntime().exec("su");
+					DataOutputStream os = new DataOutputStream(rt.getOutputStream());
+					
+					os.writeBytes("uiautomator runtest /data/local/tmp/TestTaobao.jar -c com.test.taobao.TestTaobaoByKeyword" + "\n");
+					os.flush();
+					os.writeBytes("exit\n");
+					
+				} catch (IOException e1) {
+					Toast.makeText(getApplicationContext(), "启动任务失败，请检查手机配置！", Toast.LENGTH_SHORT).show();
+					e1.printStackTrace();
+				}
 				
 			}
 		});
+		
 		jingdong.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
-				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了京东按钮").show();
+				Toast.makeText(getApplicationContext(), "即将开始做京东任务", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
 		stopTask.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了停止任务按钮").show();
 				
@@ -74,7 +91,6 @@ public class MainTaskActivity extends ActionBarActivity {
 		});
 		changeAccount.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了更换账号按钮").show();
 				
@@ -82,7 +98,6 @@ public class MainTaskActivity extends ActionBarActivity {
 		});
 		quit.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了退出按钮").show();
 				
@@ -93,13 +108,11 @@ public class MainTaskActivity extends ActionBarActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
 		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		return super.onOptionsItemSelected(item);
 	}
 

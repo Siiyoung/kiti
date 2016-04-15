@@ -29,7 +29,6 @@ public class LoginActivity extends ActionBarActivity {
 		passWordInputIcon = (Button)findViewById(R.id.loginicon);
 		passWordInputIcon.setOnClickListener(new OnClickListener(){
 			
-			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 						login();
@@ -46,7 +45,7 @@ public void getusername(){
 	
 	public void login(){
 		getusername();
-		//校验账号密码匹配则跳转到主任务页面
+		//鏍￠獙璐﹀彿瀵嗙爜鍖归厤鍒欒烦杞埌涓讳换鍔￠〉闈�
 		if (PassWordTool.checkPassWord(userNameInput.getText().toString(), passWordInput.getText().toString())){
 			Intent intent = new Intent() ;
 			intent.putExtra("userName", userNameInput.getText().toString());
@@ -55,7 +54,7 @@ public void getusername(){
 			this.startActivity(intent);
 		}
 		else{
-			new AlertDialog.Builder(LoginActivity.this).setMessage("账号或密码错误").show();
+			new AlertDialog.Builder(LoginActivity.this).setMessage("璐﹀彿鎴栧瘑鐮侀敊璇�").show();
 		}
 	}
 
