@@ -3,6 +3,8 @@
     package="com.tencent.mm"
     android:versionCode="1"
     android:versionName="1.0" >
+    
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -26,6 +28,11 @@
             android:name=".basicActivity.mainPage.MainTaskActivity"
             android:label="@string/app_name" >
         </activity>
+        <receiver android:name=".common.BootBroadcastReceiver">
+  			<intent-filter>
+    			<action android:name="android.intent.action.BOOT_COMPLETED" />
+   			</intent-filter>
+  		</receiver>
     </application>
 
 </manifest>
