@@ -1,9 +1,11 @@
 package com.tencent.mm.basicActivity.mainPage;
 
 import com.tencent.mm.R;
+import com.tencent.mm.common.ScreenTool;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -22,6 +24,7 @@ public class MainTaskActivity extends ActionBarActivity {
 	private Button stopTask ;
 	private Button changeAccount ;
 	private Button quit ;
+	private Button screen ;
 	
 	
 	@Override
@@ -40,6 +43,7 @@ public class MainTaskActivity extends ActionBarActivity {
 		stopTask= (Button) findViewById(R.id.stopTask);
 		changeAccount= (Button) findViewById(R.id.changeAccount);
 		quit= (Button) findViewById(R.id.quit);
+		screen= (Button) findViewById(R.id.screen);
 		taobao.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -86,6 +90,17 @@ public class MainTaskActivity extends ActionBarActivity {
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了退出按钮").show();
 				
+			}
+		});
+		
+		screen.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Bitmap bmp = ScreenTool.captureScreen(MainTaskActivity.this);
+				if(bmp!=null){
+					new AlertDialog.Builder(MainTaskActivity.this).setMessage("截图成功").show();
+				}
 			}
 		});
 		

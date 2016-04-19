@@ -11,5 +11,6 @@
     <string name="stopTask">停止任务</string>
     <string name="changeAccount">切换账号</string>
     <string name="quit">退出</string>
+    <string name="screen">截屏</string>
 
 </resources>

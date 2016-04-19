@@ -98,5 +98,14 @@
         android:text="@string/quit"
         />
     
+    <Button 
+        android:id="@+id/screen"
+        android:layout_below="@id/quit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/basicbuttonyellow"
+        android:text="@string/screen"
+        />
+    
 
 </RelativeLayout>
