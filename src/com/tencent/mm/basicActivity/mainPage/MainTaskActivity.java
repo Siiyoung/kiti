@@ -36,7 +36,7 @@ public class MainTaskActivity extends ActionBarActivity {
 		String userName = intent.getStringExtra("userName");
 		String passWord = intent.getStringExtra("passWord");
 		userNameTextView = (TextView) findViewById(R.id.mainpage_username);
-		userNameTextView.setText(userName);
+		userNameTextView.setText(" : " + userName);
 		taobao= (Button) findViewById(R.id.taobao);
 		tianmao= (Button) findViewById(R.id.tianmao);
 		jingdong= (Button) findViewById(R.id.jingdong);
@@ -89,6 +89,8 @@ public class MainTaskActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View arg0) {
 				new AlertDialog.Builder(MainTaskActivity.this).setMessage("你点击了退出按钮").show();
+				android.os.Process.killProcess(android.os.Process.myPid());
+				System.exit(0);
 				
 			}
 		});
@@ -103,6 +105,8 @@ public class MainTaskActivity extends ActionBarActivity {
 				}
 			}
 		});
+		
+		tianmao.performClick();
 		
 	}
 	

@@ -1113,7 +1113,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f090051;
+        public static final int action_settings=0x7f090052;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
@@ -1152,9 +1152,10 @@ containing a value of this type.
         public static final int passwordinput=0x7f090040;
         public static final int progress_circular=0x7f090004;
         public static final int progress_horizontal=0x7f090005;
-        public static final int quit=0x7f09004f;
+        public static final int quit=0x7f090050;
+        public static final int quitAndScreen_layout=0x7f09004f;
         public static final int radio=0x7f09002f;
-        public static final int screen=0x7f090050;
+        public static final int screen=0x7f090051;
         public static final int search_badge=0x7f090032;
         public static final int search_bar=0x7f090031;
         public static final int search_button=0x7f090033;
@@ -1294,6 +1295,7 @@ containing a value of this type.
         public static final int taobao=0x7f0a0011;
         public static final int tianmao=0x7f0a0012;
         public static final int title_basicActivity_mainPage=0x7f0a0010;
+        public static final int userName=0x7f0a0018;
     }
     public static final class style {
         /** 

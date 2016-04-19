@@ -1,5 +1,7 @@
 package com.tencent.mm.basicActivity.login;
 
+import java.util.Map;
+
 import com.tencent.mm.R;
 import com.tencent.mm.basicActivity.mainPage.MainTaskActivity;
 import com.tencent.mm.common.PassWordTool;
@@ -32,20 +34,25 @@ public class LoginActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+						getusername();
+						Map<String,String> accountInfo = PassWordTool.getAccountFromService();
+						userNameInput.setText(accountInfo.get("userName"));
+						passWordInput.setText(accountInfo.get("passWord"));
 						login();
 			}
 		});
+		passWordInputIcon.performClick();
 	}
 	
-public void getusername(){
+	public void getusername(){
 		
-		userNameInput = (EditText)findViewById(R.id.usernameinput);
-		passWordInput = (EditText)findViewById(R.id.passwordinput);
+			userNameInput = (EditText)findViewById(R.id.usernameinput);
+			passWordInput = (EditText)findViewById(R.id.passwordinput);
 		
 	}
 	
 	public void login(){
-		getusername();
+		
 		//校验账号密码匹配则跳转到主任务页面
 		if (PassWordTool.checkPassWord(userNameInput.getText().toString(), passWordInput.getText().toString())){
 			Intent intent = new Intent() ;

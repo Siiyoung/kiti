@@ -268,7 +268,7 @@ int id action_context_bar 0x7f09001d
 int id action_menu_divider 0x7f090002
 int id action_menu_presenter 0x7f090003
 int id action_mode_close_button 0x7f090024
-int id action_settings 0x7f090051
+int id action_settings 0x7f090052
 int id activity_chooser_view_content 0x7f090025
 int id always 0x7f09000f
 int id beginning 0x7f090016
@@ -307,9 +307,10 @@ int id passwordicon 0x7f09003f
 int id passwordinput 0x7f090040
 int id progress_circular 0x7f090004
 int id progress_horizontal 0x7f090005
-int id quit 0x7f09004f
+int id quit 0x7f090050
+int id quitAndScreen_layout 0x7f09004f
 int id radio 0x7f09002f
-int id screen 0x7f090050
+int id screen 0x7f090051
 int id search_badge 0x7f090032
 int id search_bar 0x7f090031
 int id search_button 0x7f090033
@@ -392,6 +393,7 @@ int string stopTask 0x7f0a0014
 int string taobao 0x7f0a0011
 int string tianmao 0x7f0a0012
 int string title_basicActivity_mainPage 0x7f0a0010
+int string userName 0x7f0a0018
 int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
