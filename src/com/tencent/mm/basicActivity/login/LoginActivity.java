@@ -1,4 +1,7 @@
+
 package com.tencent.mm.basicActivity.login;
+
+import java.util.Map;
 
 import com.tencent.mm.R;
 import com.tencent.mm.basicActivity.mainPage.MainTaskActivity;
@@ -31,21 +34,26 @@ public class LoginActivity extends ActionBarActivity {
 			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+						getusername();
+						Map<String,String> accountInfo = PassWordTool.getAccountFromService();
+						userNameInput.setText(accountInfo.get("userName"));
+						passWordInput.setText(accountInfo.get("passWord"));
 						login();
 			}
 		});
+		passWordInputIcon.performClick();
 	}
 	
-public void getusername(){
+	public void getusername(){
 		
-		userNameInput = (EditText)findViewById(R.id.usernameinput);
-		passWordInput = (EditText)findViewById(R.id.passwordinput);
+			userNameInput = (EditText)findViewById(R.id.usernameinput);
+			passWordInput = (EditText)findViewById(R.id.passwordinput);
 		
 	}
 	
 	public void login(){
-		getusername();
-		//鏍￠獙璐﹀彿瀵嗙爜鍖归厤鍒欒烦杞埌涓讳换鍔￠〉闈�
+		
+		//校验账号密码匹配则跳转到主任务页面
 		if (PassWordTool.checkPassWord(userNameInput.getText().toString(), passWordInput.getText().toString())){
 			Intent intent = new Intent() ;
 			intent.putExtra("userName", userNameInput.getText().toString());
@@ -54,7 +62,7 @@ public void getusername(){
 			this.startActivity(intent);
 		}
 		else{
-			new AlertDialog.Builder(LoginActivity.this).setMessage("璐﹀彿鎴栧瘑鐮侀敊璇�").show();
+			new AlertDialog.Builder(LoginActivity.this).setMessage("账号或密码错误").show();
 		}
 	}
 
@@ -77,3 +85,4 @@ public void getusername(){
 		return super.onOptionsItemSelected(item);
 	}
 }
+

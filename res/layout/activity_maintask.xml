@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="用户名 ："
+        android:text="@string/userName"
        />
     
     <TextView 
@@ -23,7 +23,6 @@
         android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:text=":"
         />
     
     <TextView 
@@ -39,6 +38,7 @@
         android:layout_below="@id/mainpage_notice"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:weightSum="3" >
 
@@ -48,12 +48,15 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1" 
+            android:layout_marginLeft="50dp"
+        	android:layout_marginRight="50dp"
             android:text="@string/taobao"/>
         <Button
             android:id="@+id/tianmao"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1" 
+            android:layout_marginRight="50dp"
             android:background="@drawable/basicbuttonyellow"
             android:text="@string/tianmao"/>
         <Button
@@ -61,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1" 
+            android:layout_marginRight="50dp"
             android:background="@drawable/basicbuttonyellow"
             android:text="@string/jingdong"/>
     </LinearLayout>
@@ -70,6 +74,7 @@
         android:layout_below="@id/taskbutton_layout"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
         android:weightSum="2" >
 
@@ -77,26 +82,56 @@
             android:id="@+id/stopTask"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="1" 
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+        	android:layout_marginRight="25dp" 
             android:background="@drawable/basicbuttonyellow"
             android:text="@string/stopTask"/>
         <Button
             android:id="@+id/changeAccount"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="1" 
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp" 
+            android:layout_marginRight="50dp" 
             android:background="@drawable/basicbuttonyellow"
             android:text="@string/changeAccount"/>
     </LinearLayout>
     
+    <LinearLayout
+        android:id="@+id/quitAndScreen_layout"
+        android:layout_below="@id/changeAccount_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+    
     <Button 
         android:id="@+id/quit"
-        android:layout_below="@id/changeAccount_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="25dp"
         android:background="@drawable/basicbuttonyellow"
         android:text="@string/quit"
         />
+    
+    
+    
+    <Button 
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/basicbuttonyellow"
+        android:text="@string/screen"
+        />
+    
+     </LinearLayout>
     
 
 </RelativeLayout>
