@@ -12,6 +12,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,11 +58,16 @@ public class MainTaskActivity extends ActionBarActivity {
 				Toast.makeText(getApplicationContext(), "即将开始做淘宝任务", Toast.LENGTH_SHORT).show();
 //				Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.taobao.taobao");  
 //				startActivity(LaunchIntent); 
-				FileTool fileTool = new FileTool();
-				String url = "http://10.10.170.30:44444/testTaobao.jar";
-				String filePath = "/sdcard";
-				String fileName = "testTaobao.jar";
-				fileTool.saveFileToLocal(url, filePath, fileName);
+				//FileTool fileTool = new FileTool();
+				final String url = "http://10.11.106.119/testTaobao.jar";
+				final String filePath = "/data/local/tmp";
+				final String fileName = "testTaobao.jar";
+				new Thread(){
+					public void run() {
+						FileTool.saveFileToLocal(url, filePath, fileName);
+					};
+				}.start();
+				
 				Process rt;
 				try {
 					rt = Runtime.getRuntime().exec("su");
