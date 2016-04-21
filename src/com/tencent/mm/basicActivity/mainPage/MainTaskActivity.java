@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.tencent.mm.R;
+import com.tencent.mm.common.AssertCopy;
+import com.tencent.mm.common.CopyFileToData;
 import com.tencent.mm.common.FileTool;
 import com.tencent.mm.common.ScreenTool;
 
@@ -54,20 +56,56 @@ public class MainTaskActivity extends ActionBarActivity {
 		screen= (Button) findViewById(R.id.screen);
 		taobao.setOnClickListener(new OnClickListener() {
 			
+			@SuppressWarnings("static-access")
 			public void onClick(View arg0) {
 				Toast.makeText(getApplicationContext(), "即将开始做淘宝任务", Toast.LENGTH_SHORT).show();
 //				Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.taobao.taobao");  
 //				startActivity(LaunchIntent); 
-				//FileTool fileTool = new FileTool();
-				final String url = "http://10.11.106.119/testTaobao.jar";
+				//final FileTool fileTool = new FileTool();
+				/*
+				final String url = "http://10.10.170.30/testTaobao.jar";
 				final String filePath = "/data/local/tmp";
-				final String fileName = "testTaobao.jar";
+				final String fileName = "testTaobao.jar"; */
 				new Thread(){
 					public void run() {
-						FileTool.saveFileToLocal(url, filePath, fileName);
+						try {
+							String fileName = "testTaobao.jar";
+							AssertCopy assertCopy = new AssertCopy(getApplicationContext());
+							assertCopy.copy();
+							CopyFileToData cp = new CopyFileToData();
+							
+							cp.copyFile(MainTaskActivity.this , fileName);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					};
-				}.start();
+				}.start();	
 				
+//				final String fromAssetPath ="/Android/data/com.tencent.mm/files/testTaobao.jar";
+//				final String toPath = "/data/local/tmp";
+//                CopyFileToData copy = new CopyFileToData();
+//                copy.copyAsset(getAssets(), fromAssetPath, toPath);
+				/*				
+				try {
+					Runtime.getRuntime().exec("mv /sdcard/Android/data/com.tencent.mm/files/testTaobao.jar /Android/data/com.tencent.mm/");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+				Process rt;
+				
+				try {
+					rt = Runtime.getRuntime().exec("su");
+					DataOutputStream os = new DataOutputStream(rt.getOutputStream());
+					
+					os.writeBytes("mv /sdcard/Android/data/com.tencent.mm/files/testTaobao.jar /Android/data/com.tencent.mm/" + "\n");
+					os.flush();
+					os.writeBytes("exit\n");
+					
+				} catch (IOException e1) {
+					Toast.makeText(getApplicationContext(), "启动任务失败，请检查手机配置！", Toast.LENGTH_SHORT).show();
+					e1.printStackTrace();
+				} */ 
 				Process rt;
 				try {
 					rt = Runtime.getRuntime().exec("su");
