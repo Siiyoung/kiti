@@ -38,7 +38,7 @@ public class AssertCopy {
      *  @return 是否拷贝成功,true 成功；false 失败
      *  @throws IOException
      */
-    public static boolean copy() throws IOException {
+    public boolean copy() throws IOException {
  
         List<String> srcFiles = new ArrayList<String>();
          
