@@ -11,7 +11,7 @@ import android.content.res.AssetManager;
 import android.util.Log;
 
 public class CopyFileToData {
-	final static String TARGET_BASE_PATH = "/data/local/tmp/";
+	final static String TARGET_BASE_PATH = "/sdcard/Android/data/";
     public Context context;
 	
 

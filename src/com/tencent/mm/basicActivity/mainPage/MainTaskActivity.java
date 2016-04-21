@@ -81,6 +81,11 @@ public class MainTaskActivity extends ActionBarActivity {
 					};
 				}.start();	
 				
+				try {
+					Thread.sleep(2000L);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 //				final String fromAssetPath ="/Android/data/com.tencent.mm/files/testTaobao.jar";
 //				final String toPath = "/data/local/tmp";
 //                CopyFileToData copy = new CopyFileToData();
@@ -111,7 +116,7 @@ public class MainTaskActivity extends ActionBarActivity {
 					rt = Runtime.getRuntime().exec("su");
 					DataOutputStream os = new DataOutputStream(rt.getOutputStream());
 					
-					os.writeBytes("uiautomator runtest /data/local/tmp/testTaobao.jar -c com.test.taobao.TestTaobaoByKeyword" + "\n");
+					os.writeBytes("uiautomator runtest /sdcard/Android/data/testTaobao.jar -c com.test.taobao.TestTaobaoByKeyword" + "\n");
 					os.flush();
 					os.writeBytes("exit\n");
 					
